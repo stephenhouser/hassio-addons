@@ -1,6 +1,6 @@
 {
     "name": "One Wire Server",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "slug": "owserver",
     "description": "One wire server",
     "url": "https://github.com/stephenhouser/hassio-addons/tree/master/owserver",
