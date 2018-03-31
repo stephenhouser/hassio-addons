@@ -1,6 +1,6 @@
 {
     "name": "One Wire Server",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "slug": "owserver",
     "description": "One wire server",
     "url": "https://github.com/stephenhouser/hassio-addons/tree/master/owserver",
@@ -9,6 +9,6 @@
     "options": {},
     "schema": {},
     "privileged": ["SYS_RAWIO", "SYS_ADMIN"],
-    "devices": ["/dev/ttyUSB1:/dev/ttyUSB1:rwm"],
+    "devices": ["/dev/bus/usb:/dev/bus/usb:rwm"],
     "ports": {"4304/tcp": null}
 }
