@@ -1,5 +1,6 @@
 #bestlibre/armhf-debian-base:stretch
-FROM arm32v7/debian:stretch
+#FROM arm32v7/debian:stretch
+FROM debian:stretch
 #ARG BUILD_FROM
 #FROM $BUILD_FROM
 
