@@ -12,5 +12,5 @@
     "devices": ["/dev/bus/usb:/dev/bus/usb:rwm"],
     "ports": {"4304/tcp": null},
     "arch": ["amd64"],
-    "host_network", true
+    "host_network": true
 }
