@@ -1,6 +1,6 @@
 {
     "name": "rtl_433 MQTT and HASSIO Bridge",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "slug": "rtl_433",
     "description": "Collect 433Mhz data to MQTT and Add HomeAssistant configuration data",
     "url": "https://github.com/stephenhouser/hassio-addons/tree/master/rtl_433",
@@ -13,12 +13,14 @@
 		"host": "str",
 		"port": "int",
 		"user": "str",
-		"pass": "str"
+		"pass": "str",
+		"rtl_options": "str"
 	},
 	"options": {
 		"host": "192.168.1.1",
 		"port": 1883,
 		"user": "mqtt",
-		"pass": "password"
+		"pass": "password",
+		"rtl_options": "-Y classic -f 915m -f 433.92m -H 90"
 	}
 }
