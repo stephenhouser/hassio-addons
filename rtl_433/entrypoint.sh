@@ -16,9 +16,11 @@ MQTT_PORT=$(bashio::config "port")
 MQTT_USER=$(bashio::config "username")
 MQTT_PASS=$(bashio::config "password")
 
+RTL_OPTIONS=$(bashio::config "rtl_options")
+
 python3 /rtl_433_mqtt_hass.py \
 	--host ${MQTT_HOST} --port ${MQTT_PORT} \
 	--user ${MQTT_USER} --password ${MQTT_PASS} \
 	--retain &
 
-rtl_433 -F kv -F mqtt://${MQTT_HOST}:${MQTT_PORT},user=${MQTT_USER},pass=${MQTT_PASS}
+rtl_433 -F kv -F mqtt://${MQTT_HOST}:${MQTT_PORT},user=${MQTT_USER},pass=${MQTT_PASS} ${RTL_OPTIONS}
