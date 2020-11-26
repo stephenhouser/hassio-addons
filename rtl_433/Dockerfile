@@ -44,7 +44,8 @@ RUN pip3 install paho-mqtt
 COPY --from=builder /usr/local/ /usr/local/
 COPY --from=builder /etc/modprobe.d/blacklist-dvb_usb_rtl28xxu.conf /etc/modprobe.d/blacklist-dvb_usb_rtl28xxu.conf
 COPY --from=builder /etc/udev/rules.d/rtl-sdr.rules /etc/udev/rules.d/rtl-sdr.rules
-COPY --from=builder /build/rtl_433/examples/rtl_433_mqtt_hass.py /rtl_433_mqtt_hass.py
+#COPY --from=builder /build/rtl_433/examples/rtl_433_mqtt_hass.py /rtl_433_mqtt_hass.py
+RUN curl https://raw.githubusercontent.com/soaringswine/rtl_433/patch-1/examples/rtl_433_mqtt_hass.py > /rtl_433_mqtt_hass.py
 COPY entrypoint.sh /entrypoint.sh
 
 #RUN adduser -D -H user -G usb
