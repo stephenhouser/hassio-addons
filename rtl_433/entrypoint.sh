@@ -13,8 +13,8 @@ CONFIG_PATH=/data/options.json
 # MQTT_PASS=$(bashio::services mqtt "password")
 MQTT_HOST=$(bashio::config "host")
 MQTT_PORT=$(bashio::config "port")
-MQTT_USER=$(bashio::config "username")
-MQTT_PASS=$(bashio::config "password")
+MQTT_USER=$(bashio::config "user")
+MQTT_PASS=$(bashio::config "pass")
 
 RTL_OPTIONS=$(bashio::config "rtl_options")
 
