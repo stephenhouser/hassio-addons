@@ -7,7 +7,7 @@
     "startup": "services",
     "boot": "auto",
 	"usb": "true",
-	"arch": ["amd64"],
+  	"arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
 	"devices": ["/dev/bus/usb:/dev/bus/usb:rwm"],
 	"schema": {
 		"host": "str",
