@@ -1,20 +1,26 @@
-#bestlibre/armhf-debian-base:stretch
-#FROM arm32v7/debian:stretch
-FROM debian:stretch
-#ARG BUILD_FROM
-#FROM $BUILD_FROM
+ARG BUILD_FROM
+FROM $BUILD_FROM as builder
 
-ENV LANG C.UTF-8
+RUN apk update \
+ && apk add build-base libusb-dev
 
-RUN set -ex \
- && apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-                owserver \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ~/.cache \
- && update-rc.d owserver disable
+# Build only `owserver` and build with USB support
+RUN wget https://github.com/owfs/owfs/releases/download/v3.2p4/owfs-3.2p4.tar.gz \
+ && tar xzvf owfs-3.2p4.tar.gz \
+ && cd owfs-3.2p4 \
+ && ./configure \
+	--prefix=/usr/local \
+	--sysconfdir=/etc \
+	--mandir=/usr/share/man \
+	--localstatedir=/var \
+	--with-fuseinclude=/usr/include \
+	--with-fuselib=/usr/lib \
+	--disable-w1 \
+	--disable-i2c \
+	--disable-owfs --disable-owhttpd --disable-owftpd --disable-owshell \
+	--disable-ownet --disable-owtap --disable-owmon --disable-owexternal \
+ && make install
 
-# Copy data for add-on
 COPY owfs.conf /etc/owfs.conf
 COPY run.sh /
 RUN chmod a+x /run.sh
