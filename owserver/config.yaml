@@ -1,6 +1,6 @@
 name: "OneWire Server"
 description: "OneWire Server"
-version: "1.0.0"
+version: "1.0.1"
 slug: "owserver"
 url: https://github.com/stephenhouser/hassio-addons/tree/master/owserver
 ports:
