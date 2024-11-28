@@ -39,7 +39,7 @@ ENV LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib64:/usr/local/lib"
 WORKDIR /
 
 RUN apk add --no-cache --update libusb python3 py3-pip
-RUN pip3 install paho-mqtt
+RUN pip3 install paho-mqtt || true
 
 COPY --from=builder /usr/local/ /usr/local/
 COPY --from=builder /etc/modprobe.d/blacklist-dvb_usb_rtl28xxu.conf /etc/modprobe.d/blacklist-dvb_usb_rtl28xxu.conf
